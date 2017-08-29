@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50552
 File Encoding         : 65001
 
-Date: 2017-08-28 16:16:55
+Date: 2017-08-29 16:17:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1027,6 +1027,7 @@ INSERT INTO `insta_ft_col` VALUES ('989', 'f.f.is.the.best.sense.67.37', '401414
 INSERT INTO `insta_ft_col` VALUES ('990', 'twofeetunder_', '1990128718', '1', '997375436113190038_1990128718', '1591384137402254974_1990128718', '1465674779720777432_1990128718', '0', '1');
 INSERT INTO `insta_ft_col` VALUES ('991', 'mistress.elham', '3585754575', '1', '1401744297854033191_3585754575', '1553246601047640075_3585754575', '1493607448538589224_3585754575', '0', '1');
 INSERT INTO `insta_ft_col` VALUES ('992', '1footwonder', '5776769209', '1', '1565672842892475861_5776769209', '1588103136480126116_5776769209', '1565672842892475861_5776769209', '0', '1');
+INSERT INTO `insta_ft_col` VALUES ('993', 'mistress_melina', '3629733976', '0', '1480495579061762365_3629733976', null, null, '0', '1');
 
 -- ----------------------------
 -- Table structure for insta_ft_col_a
@@ -2922,8 +2923,6 @@ INSERT INTO `insta_ft_col_requested` VALUES ('175', 'filipino_feet__lover', '0',
 INSERT INTO `insta_ft_col_requested` VALUES ('176', 'nylondrug', '0', '1');
 INSERT INTO `insta_ft_col_requested` VALUES ('177', 'pezinhosdamah', '0', '1');
 INSERT INTO `insta_ft_col_requested` VALUES ('178', 'persiancandidfeet', '0', '1');
-INSERT INTO `insta_ft_col_requested` VALUES ('179', 'mistress_melina', '0', '1');
-INSERT INTO `insta_ft_col_requested` VALUES ('180', 'miss_sanazii__', '0', '1');
 INSERT INTO `insta_ft_col_requested` VALUES ('181', 'kocaman0909', '0', '1');
 INSERT INTO `insta_ft_col_requested` VALUES ('182', 'boogie_williams', '0', '1');
 INSERT INTO `insta_ft_col_requested` VALUES ('183', 'pipe_too', '0', '1');
