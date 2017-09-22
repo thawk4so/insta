@@ -44,19 +44,19 @@ foreach ($results as $iaccount) {
                     $carousel_media = $indi['carousel_media'];
                     foreach ($carousel_media as $icm) {
                         if (!empty($icm['videos'])) {
-                            if (!file_exists("videos/".$account)) {
-                                mkdir("videos/".$account);                        
+                            if (!file_exists("../videos/".$account)) {
+                                mkdir("../videos/".$account);                        
                             }                            
                             $video_link = $icm['videos']['standard_resolution']['url'];
                             $vname_array = explode("/", $video_link);
                             $vname = end($vname_array);
-                            if (!file_exists("videos/".$account."/".$vname)) {
-                                copy($video_link, "videos/".$account."/".$vname);
+                            if (!file_exists("../videos/".$account."/".$vname)) {
+                                copy($video_link, "../videos/".$account."/".$vname);
                                 echo "video id: ".$indi['id']."\n";    
                             }                             
                         } else {
-                            if (!file_exists("pictures/".$account)) {
-                                mkdir("pictures/".$account);
+                            if (!file_exists("../pictures/".$account)) {
+                                mkdir("../pictures/".$account);
                                 
                             }                            
                             $image_link = $icm['images']['standard_resolution']['url'];
@@ -66,27 +66,27 @@ foreach ($results as $iaccount) {
                             $fname = end($fname_array); 
                             //echo $fname."\n";
                             $get_url = "https://". $fname_array[2]."/".$fname_array[3]."/e35/".end($fname_array);
-                            if (!file_exists("pictures/".$account."/".$fname)) {
-                                copy($get_url, "pictures/".$account."/".$fname);
+                            if (!file_exists("../pictures/".$account."/".$fname)) {
+                                copy($get_url, "../pictures/".$account."/".$fname);
                                 echo $indi['id']."\n";    
                             }                             
                         }
                            
                     }
                 } elseif (!empty($indi['videos']['standard_resolution']['url'])) {
-                    if (!file_exists("videos/".$account)) {
-                        mkdir("videos/".$account);                        
+                    if (!file_exists("../videos/".$account)) {
+                        mkdir("../videos/".$account);                        
                     }                    
                     $video_link = $indi['videos']['standard_resolution']['url'];
                     $vname_array = explode("/", $video_link);
                     $vname = end($vname_array);
-                    if (!file_exists("videos/".$account."/".$vname)) {
-                        copy($video_link, "videos/".$account."/".$vname);
+                    if (!file_exists("../videos/".$account."/".$vname)) {
+                        copy($video_link, "../videos/".$account."/".$vname);
                         echo "video id: ".$indi['id']."\n";    
                     }                     
                 } else {
-                    if (!file_exists("pictures/".$account)) {
-                        mkdir("pictures/".$account);
+                    if (!file_exists("../pictures/".$account)) {
+                        mkdir("../pictures/".$account);
                     }  
                     $image_link = $indi['images']['standard_resolution']['url'];
                     //echo $image_link."\n";
@@ -95,8 +95,8 @@ foreach ($results as $iaccount) {
                     $fname = end($fname_array); 
                     //echo $fname."\n";
                     $get_url = "https://". $fname_array[2]."/".$fname_array[3]."/e35/".end($fname_array);
-                    if (!file_exists("pictures/".$account."/".$fname)) {
-                        copy($get_url, "pictures/".$account."/".$fname);
+                    if (!file_exists("../pictures/".$account."/".$fname)) {
+                        copy($get_url, "../pictures/".$account."/".$fname);
                         echo $indi['id']."\n";    
                     }                         
                 }               

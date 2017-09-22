@@ -53,7 +53,6 @@ foreach ($results as $iaccount) {
         $more_str = curl_exec($ch);
         curl_close($ch);
         if (json_validate($more_str)) {
-            $check_account_id_flag = 1;
             $more_instagram_array = json_decode($more_str, TRUE);
             
 
@@ -76,19 +75,19 @@ foreach ($results as $iaccount) {
                         $carousel_media = $indi['carousel_media'];
                         foreach ($carousel_media as $icm) {
                             if (!empty($icm['videos'])) {
-                                if (!file_exists("videos/".$account)) {
-                                    mkdir("videos/".$account);                        
+                                if (!file_exists("../videos/".$account)) {
+                                    mkdir("../videos/".$account);                        
                                 }                            
                                 $video_link = $icm['videos']['standard_resolution']['url'];
                                 $vname_array = explode("/", $video_link);
                                 $vname = end($vname_array);
-                                if (!file_exists("videos/".$account."/".$vname)) {
-                                    copy($video_link, "videos/".$account."/".$vname);
+                                if (!file_exists("../videos/".$account."/".$vname)) {
+                                    copy($video_link, "../videos/".$account."/".$vname);
                                     echo "video id: ".$indi['id']."\n";    
                                 }                             
                             } else {
-                                if (!file_exists("pictures/".$account)) {
-                                    mkdir("pictures/".$account);
+                                if (!file_exists("../pictures/".$account)) {
+                                    mkdir("../pictures/".$account);
                                     
                                 }                            
                                 $image_link = $icm['images']['standard_resolution']['url'];
@@ -98,30 +97,30 @@ foreach ($results as $iaccount) {
                                 $fname = end($fname_array); 
                                 //echo $fname."\n";
                                 $get_url = "https://". $fname_array[2]."/".$fname_array[3]."/e35/".end($fname_array);
-                                if (!file_exists("pictures/".$account."/".$fname)) {
-                                    copy($get_url, "pictures/".$account."/".$fname);
+                                if (!file_exists("../pictures/".$account."/".$fname)) {
+                                    copy($get_url, "../pictures/".$account."/".$fname);
                                     echo $indi['id']."\n";    
                                 }                             
                             }
                                
                         }
                     } elseif (!empty($indi['videos']['standard_resolution']['url'])) {
-                        if (!file_exists("videos/".$account)) {
-                            mkdir("videos/".$account);                        
+                        if (!file_exists("../videos/".$account)) {
+                            mkdir("../videos/".$account);                        
                         }                                                            
                         $video_link = $indi['videos']['standard_resolution']['url'];
                         $vname_array = explode("/", $video_link);
                         $vname = end($vname_array);
                         if (!file_exists("videos/".$account."/".$vname)) {
-                            if (!file_exists("videos/".$account)) {
-                                mkdir("videos/".$account);                        
+                            if (!file_exists("../videos/".$account)) {
+                                mkdir("../videos/".$account);                        
                             }                             
-                            copy($video_link, "videos/".$account."/".$vname);
+                            copy($video_link, "../videos/".$account."/".$vname);
                             echo "video id: ".$indi['id']."\n";    
                         }                     
                     } else {
-                        if (!file_exists("pictures/".$account)) {
-                            mkdir("pictures/".$account);
+                        if (!file_exists("../pictures/".$account)) {
+                            mkdir("../pictures/".$account);
                         }
                         $image_link = $indi['images']['standard_resolution']['url'];
                         //echo $image_link."\n";
@@ -130,12 +129,12 @@ foreach ($results as $iaccount) {
                         $fname = end($fname_array); 
                         //echo $fname."\n";
                         $get_url = "https://". $fname_array[2]."/".$fname_array[3]."/e35/".end($fname_array);
-                        if (!file_exists("pictures/".$account."/".$fname)) {
-                            if (!file_exists("pictures/".$account)) {
-                                mkdir("pictures/".$account);
+                        if (!file_exists("../pictures/".$account."/".$fname)) {
+                            if (!file_exists("../pictures/".$account)) {
+                                mkdir("../pictures/".$account);
                                 
                             }                                 
-                            copy($get_url, "pictures/".$account."/".$fname);
+                            copy($get_url, "../pictures/".$account."/".$fname);
                             echo $indi['id']."\n";    
                         }                         
                     }
@@ -150,7 +149,6 @@ foreach ($results as $iaccount) {
                 break;
             } 
         } else {
-            $check_account_id_flag = 0;
             $json_status = "error";
             $check_more = 0;
         }
@@ -170,7 +168,7 @@ foreach ($results as $iaccount) {
         if (empty($recent_id)){
             $recent_id = "0_0";
         }         
-        $update_query = "UPDATE insta_ft_col SET recent_access_id = '{$recent_id}', break_access_id = '{$input_break_id}', break_status = {$break_status}, account_existence = {$check_account_id_flag}   WHERE id = {$iaccount['id']}";
+        $update_query = "UPDATE insta_ft_col SET recent_access_id = '{$recent_id}', break_access_id = '{$input_break_id}', break_status = {$break_status} WHERE id = {$iaccount['id']}";
         echo $update_query."\n";     
         $update_stmt = $pdb->prepare($update_query);
         $update_stmt->execute();                       
