@@ -29,12 +29,24 @@ foreach ($results as $ind) {
     }    
     if (strpos($temp_string, '@') !== false) {
         $delete_flag = 1;
-    } 
+    }
+    if (strpos($temp_string, '$') !== false) {
+        $delete_flag = 1;
+    }        
     if (strlen($temp_string) <5) {
         $delete_flag = 1;
     } 
-    $temp_string = str_replace("'", "", $temp_string);       
+    $temp_string = str_replace("'", "", $temp_string);   
+    /*  
     $query = "SELECT * FROM insta_ft_col WHERE instagram_account = '{$temp_string}' ";
+    $stmt = $pdb->prepare($query);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    if (!empty($results)) {
+        $delete_flag = 1;
+    }
+    */
+    $query = "SELECT * FROM intest_keep_check WHERE name = '{$temp_string}' ";
     $stmt = $pdb->prepare($query);
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
