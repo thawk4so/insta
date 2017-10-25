@@ -1,0 +1,2 @@
+#!/bin/sh
+mysqldump --defaults-extra-file=/home/mtang/projects/insta/.sqlpwd personal > personal.sql
